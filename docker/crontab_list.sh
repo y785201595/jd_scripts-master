@@ -7,6 +7,12 @@
 #女装盲盒 活动时间：2021-05-1到2021-05-31
 35 1,22 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 
+#京喜工厂开团
+5/15 1 * * * node /scripts/jd_dreamFactory_tuan.js >> /scripts/logs/jd_dreamFactory_tuan.js 2>&1
+
+#明星小店(星店长)
+0 1,21 * * * node /scripts/ jd_star_shop.js >> /scripts/logs/ jd_star_shop.js 2>&1
+
 #京东极速版红包(活动时间：2021-5-5至2021-5-31)
 45 0,23 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 
