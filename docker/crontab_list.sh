@@ -4,6 +4,18 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+# 省钱大赢家-翻翻乐
+1 0,8 * * * node /scripts/jd_sqffl.js >> /scripts/logs/jd_sqffl.log 2>&1
+
+# 京东到家果园任务
+10 0,3,8,11,17 * * * node /scripts/jd_djfruit.js >> /scripts/logs/jd_djfruit.log 2>&1
+
+#整点京豆雨
+30 20 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
+
+# 京喜牧场
+20 0-23/3 * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1
+
 #女装盲盒 活动时间：2021-05-1到2021-05-31
 35 1,22 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 
