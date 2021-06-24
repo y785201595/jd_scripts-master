@@ -6,7 +6,7 @@
 ##############短期活动##############
 
 #京东魔盒
-0 0,1-23/3 * * *node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
+0 0,1-23/3 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
 
 # 省钱大赢家-翻翻乐
 1 0,8 * * * node /scripts/jd_sqffl.js >> /scripts/logs/jd_sqffl.log 2>&1
