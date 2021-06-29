@@ -5,6 +5,8 @@
 
 ##############短期活动##############
 
+#东东乐园
+30 7 * * * node /scripts/jd_ddly.js >> /scripts/logs/jd_ddly.log 2>&1
 
 #京东到家果园水车收水滴任务
 */5 * * * * node /scripts/jd_jddj_fruit_collectWater.js >> /scripts/logs/jd_jddj_fruit_collectWater.log 2>&1
