@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#推一推
+30 7 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
+
 #特物Z
 #18 11,21 * * * node /scripts/ jd_superBrand.js >> /scripts/logs/ jd_superBrand.log 2>&1
 
