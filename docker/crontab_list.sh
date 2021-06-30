@@ -5,6 +5,12 @@
 
 ##############短期活动##############
 
+#欧洲狂欢杯
+57 59 9  * * * node /scripts/jd_europeancup.js >> /scripts/jd_europeancup.log 2>&1
+
+#星系牧场
+1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/jd_qqxing.log 2>&1
+
 #推一推
 30 7 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
 
