@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#特物Z
+18 11,21 * * * node /scripts/ jd_superBrand.js >> /scripts/logs/ jd_superBrand.log 2>&1
+
 #东东乐园
 30 7 * * * node /scripts/jd_ddly.js >> /scripts/logs/jd_ddly.log 2>&1
 
