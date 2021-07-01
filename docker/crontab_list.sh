@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#柠檬京东零食街
+0 11 * * * node /scripts/jd_lsj.js >> /scripts/jd_lsj.log 2>&1
+
 #欧洲狂欢杯
 57 59 9  * * * node /scripts/jd_europeancup.js >> /scripts/jd_europeancup.log 2>&1
 
