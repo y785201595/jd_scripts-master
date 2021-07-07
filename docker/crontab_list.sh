@@ -5,6 +5,15 @@
 
 ##############短期活动##############
 
+#汪汪乐园开工位
+0 0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/jd_joy_park_open.log 2>&1
+
+#汪汪乐园每日任务
+0 0 9 * * * node /scripts/jd_joy_park_task.js >> /scripts/jd_joy_park_task.log 2>&1
+
+#全面抢京豆
+08 12 * * * node /scripts/jd_qjd.js >> /scripts/jd_qjd.log 2>&1
+
 #柠檬京东零食街
 0 11 * * * node /scripts/jd_lsj.js >> /scripts/jd_lsj.log 2>&1
 
