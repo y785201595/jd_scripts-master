@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#燃动夏季
+25 0,6-23/2 * * * node /scripts/jd_summer_movement.js >> /scripts/jd_summer_movement.log 2>&1
+
 #汪汪乐园开工位
 0 0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/jd_joy_park_open.log 2>&1
 
