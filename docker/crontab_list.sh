@@ -4,6 +4,11 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#汪汪乐园养joy
+20 0-23/3 * * * node /scripts/jd_joy_park.js >> /scripts/jd_joy_park.log 2>&1
+
+#早起福利
+30 6 * * * node /scripts/jd_zqfl.js >> /scripts/jd_zqfl.log 2>&1
 
 #燃动夏季
 25 0,6-23/2 * * * node /scripts/jd_summer_movement.js >> /scripts/jd_summer_movement.log 2>&1
