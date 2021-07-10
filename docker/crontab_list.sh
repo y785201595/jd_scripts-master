@@ -5,31 +5,31 @@
 
 ##############短期活动##############
 #汪汪乐园养joy
-20 0-23/3 * * * node /scripts/jd_joy_park.js >> /scripts/jd_joy_park.log 2>&1
+20 0-23/3 * * * node /scripts/jd_joy_park.js >> /scripts/logs/jd_joy_park.log 2>&1
 
 #早起福利
-30 6 * * * node /scripts/jd_zqfl.js >> /scripts/jd_zqfl.log 2>&1
+30 6 * * * node /scripts/jd_zqfl.js >> /scripts/logs/jd_zqfl.log 2>&1
 
 #燃动夏季
-25 0,6-23/2 * * * node /scripts/jd_summer_movement.js >> /scripts/jd_summer_movement.log 2>&1
+25 0,6-23/2 * * * node /scripts/jd_summer_movement.js >> /scripts/logs/jd_summer_movement.log 2>&1
 
 #汪汪乐园开工位
-0 0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/jd_joy_park_open.log 2>&1
+0 0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/logs/jd_joy_park_open.log 2>&1
 
 #汪汪乐园每日任务
-0 0 9 * * * node /scripts/jd_joy_park_task.js >> /scripts/jd_joy_park_task.log 2>&1
+0 0 9 * * * node /scripts/jd_joy_park_task.js >> /scripts/logs/jd_joy_park_task.log 2>&1
 
 #全面抢京豆
-08 12 * * * node /scripts/jd_qjd.js >> /scripts/jd_qjd.log 2>&1
+08 12-13 * * * node /scripts/jd_qjd.js >> /scripts/logs/jd_qjd.log 2>&1
 
 #柠檬京东零食街
-0 11 * * * node /scripts/jd_lsj.js >> /scripts/jd_lsj.log 2>&1
+0 11 * * * node /scripts/jd_lsj.js >> /scripts/logs/jd_lsj.log 2>&1
 
 #欧洲狂欢杯
-57 59 9  * * * node /scripts/jd_europeancup.js >> /scripts/jd_europeancup.log 2>&1
+57 59 9  * * * node /scripts/jd_europeancup.js >> /scripts/logs/jd_europeancup.log 2>&1
 
 #星系牧场
-1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/jd_qqxing.log 2>&1
+1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 
 #推一推
 30 7 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
