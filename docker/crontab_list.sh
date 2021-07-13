@@ -4,6 +4,9 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#joy环境
+24 10 * * * npm install png-js |ts >> /scripts/logs/png-js.log 2>&1
+
 #燃动夏季_SH助力
 12 7-14 * * * node /scripts/jd_summer_movement_help.js >> /scripts/logs/jd_summer_movement_help.log 2>&1
 
