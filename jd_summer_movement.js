@@ -45,11 +45,11 @@ $.innerShInviteList = [
   'H8mphO2nRAmleYWfHtA0uY-QzpCd'
 ];
 $.zero205inviteList = [
-  'HcmphLbwLg_xLIKcQ9I30NPhOrh49S_zGqJfiyTNe3K6JsRD6BSa9AIiEUYdfyhta-M5JPJOW1K1kRVSql1v2Q',
-  'HcmphLbwLg2gd4rIQoEz18GMTeJIIu04Rk818RwvbWue16YmZ7fIGUfq_FlVKNu608HZ2zsqUhh7HVLwsupFrg',
-  'HcmphLbwLgz2ftDOEtQx1bjvXFuX5qPpudaqlx4pPjNFfpwu_d1Tye71AqsqmvzL3GBah4hRPOvh-GrV8ktvOg',
-  'HcmphO2nRAmleYWfHtA0uQet2oBSrx_6LqhqTBgnpKIMFTDkRWzWn02ibhGLRrufBaH5LQPWEKgw',
-  'HcmphLbwLnbqGMrzbr5pgLC2aqTWpoQSfKjjFsB2tA_Gce0D6FKHbOaXxtZEaYnd-qq42I52W3AcYZ0EJQ'
+  "HcmphLbwLg_xLIKcQ9I30NPhOrh49S_zGqJfiyTNe3K6JsRD6BSa9AIiEUYdfyhta-M5JPJOW1K1kRVSql1v2Q",
+  "HcmphLbwLg2gd4rIQoEz18GMTeJIIu04Rk818RwvbWue16YmZ7fIGUfq_FlVKNu608HZ2zsqUhh7HVLwsupFrg",
+  "HcmphLbwLgz2ftDOEtQx1bjvXFuX5qPpudaqlx4pPjNFfpwu_d1Tye71AqsqmvzL3GBah4hRPOvh-GrV8ktvOg",
+  "HcmphO2nRAmleYWfHtA0uQet2oBSrx_6LqhqTBgnpKIMFTDkRWzWn02ibhGLRrufBaH5LQPWEKgw",
+  "HcmphLbwLnbqGMrzbr5pgLC2aqTWpoQSfKjjFsB2tA_Gce0D6FKHbOaXxtZEaYnd-qq42I52W3AcYZ0EJQ"
 ];
 
 if ($.isNode()) {
@@ -62,8 +62,15 @@ if ($.isNode()) {
 }
 
 $.appid = 'o2_act';
-const UA = $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "JD4iPhone/9.3.5 CFNetwork/1209 Darwin/20.2.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "JD4iPhone/9.3.5 CFNetwork/1209 Darwin/20.2.0")
+const UA = $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : `jdpingou;iPhone;4.11.0;${Math.ceil(Math.random()*2+12)}.${Math.ceil(Math.random()*4)};${randomString(40)};`) : ($.getdata('JDUA') ? $.getdata('JDUA') : `jdpingou;iPhone;10.0.6;${Math.ceil(Math.random()*2+12)}.${Math.ceil(Math.random()*4)};${randomString(40)};`)
 
+function randomString(e) {
+  e = e || 32;
+  let t = "abcdefhijkmnprstwxyz2345678", a = t.length, n = "";
+  for (i = 0; i < e; i++)
+    n += t.charAt(Math.floor(Math.random() * a));
+  return n
+}
 
 !(async () => {
   if (!cookiesArr[0]) {
@@ -196,19 +203,21 @@ async function movement() {
 
     console.log('\n运动\n')
     $.speedTraining = true;
-    await takePostRequest('olympicgames_startTraining');
-    await $.wait(1000);
-    for (let i = 0; i <= 3; i++) {
-      if ($.speedTraining) {
-        await takePostRequest('olympicgames_speedTraining');
-        await $.wait(1000);
-      } else {
-        break;
+    if(!$.hotFlag){
+      await takePostRequest('olympicgames_startTraining');
+      await $.wait(1000);
+      for(let i=0;i<=3;i++){
+        if($.speedTraining){
+          await takePostRequest('olympicgames_speedTraining');
+          await $.wait(1000);
+        }else{
+          break;
+        }
       }
     }
 
     console.log(`\n做任务\n`);
-    await takePostRequest('olympicgames_getTaskDetail');
+    if(!$.hotFlag) await takePostRequest('olympicgames_getTaskDetail');
     await $.wait(1000);
     //做任务
     for (let i = 0; i < $.taskList.length && !$.hotFlag; i++) {
@@ -329,7 +338,7 @@ async function movement() {
     // 店铺
     console.log(`\n去做店铺任务\n`);
     $.shopInfoList = [];
-    await takePostRequest('qryCompositeMaterials');
+    if(!$.hotFlag) await takePostRequest('qryCompositeMaterials');
     for (let i = 0; i < $.shopInfoList.length; i++) {
       let taskbool = false
       if (!aabbiill()) continue;
@@ -594,19 +603,22 @@ async function dealReturn(type, res) {
         $.feedDetailInfo = data.data.result.addProductVos[0] || [];
       }
       break;
-    case 'add_car':
-      if (data.code === 0) {
-        let acquiredScore = data.data.result.acquiredScore;
-        if (Number(acquiredScore) > 0) {
-          console.log(`加购成功,获得金币:${acquiredScore}`);
-        } else {
-          console.log(`加购成功`);
+      case 'add_car':
+        if (data.code === 0) {
+          if (data.data && data.data.bizCode === 0 && data.data.result && data.data.result.acquiredScore) {
+            let acquiredScore = data.data.result.acquiredScore;
+            if (Number(acquiredScore) > 0) {
+              console.log(`加购成功,获得金币:${acquiredScore}`);
+            } else {
+              console.log(`加购成功`);
+            }
+          } else if (data.data && data.data.bizMsg) {
+            console.log(data.data.bizMsg);
+          } else {
+            console.log(res);
+          }
         }
-      } else {
-        console.log(res);
-        console.log(`加购失败`);
-      }
-      break
+        break
     case 'shHelp':
     case 'help':
       if (data.data && data.data.bizCode === 0) {
@@ -754,7 +766,7 @@ async function getPostRequest(type, body) {
     'Cookie': $.cookie,
     "Origin": "https://wbbny.m.jd.com",
     "Referer": "https://wbbny.m.jd.com/",
-    "User-Agent": "jdapp;iPhone;9.2.0;14.1;",
+    "User-Agent": UA,
 
   };
   return { url: url, method: method, headers: headers, body: body };
@@ -772,7 +784,7 @@ function callbackResult(info) {
         'Connection': `keep-alive`,
         'Accept': `*/*`,
         'Host': `api.m.jd.com`,
-        'User-Agent': "jdapp;iPhone;10.0.2;14.3;8a0d1837f803a12eb217fcf5e1f8769cbb3f898d;network/wifi;model/iPhone12,1;addressid/4199175193;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+        'User-Agent': UA,
         'Accept-Encoding': `gzip, deflate, br`,
         'Accept-Language': `zh-cn`,
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -807,7 +819,7 @@ function joinjoinjoinhui(url, Referer) {
         "Host": "api.m.jd.com",
         "Referer": Referer,
         "Cookie": $.cookie,
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;10.0.2;14.3;8a0d1837f803a12eb217fcf5e1f8769cbb3f898d;network/wifi;model/iPhone12,1;addressid/4199175193;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;10.0.2;14.3;8a0d1837f803a12eb217fcf5e1f8769cbb3f898d;network/wifi;model/iPhone12,1;addressid/4199175193;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+        "User-Agent": UA,
       }
     }
     $.get(taskjiaruUrl, async (err, resp, data) => {
