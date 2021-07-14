@@ -4,6 +4,10 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+
+#店铺签到
+26 1,9 * * * node /scripts/jd_dpqd.js >> /scripts/logs/jd_dpqd.log 2>&1
+
 #joy环境
 24 10 * * * npm install png-js |ts >> /scripts/logs/png-js.log 2>&1
 
@@ -38,7 +42,7 @@
 1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 
 #推一推
-30 7 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
+30 7 * * * node /scripts/jd_tuijinbi.js >> /scripts/logs/jd_tuijinbi.log 2>&1
 
 #特物Z
 #18 11,21 * * * node /scripts/ jd_superBrand.js >> /scripts/logs/ jd_superBrand.log 2>&1
