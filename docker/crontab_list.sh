@@ -78,7 +78,7 @@
 30 20 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
 
 # 京喜牧场
-20 0-23/3 * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1
+20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 
 #女装盲盒 活动时间：2021-05-1到2021-05-31
 35 1,23 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
@@ -114,12 +114,12 @@
 #京享值PK
 15 0,6,13,19,21 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
 #京东沸腾之夜(5.31日有效)
-0 15-19/1 * * * node /scripts/jd_party_night.js >> /scripts/logs/jd_party_night.log 2>&1
+#0 15-19/1 * * * node /scripts/jd_party_night.js >> /scripts/logs/jd_party_night.log 2>&1
 ##############长期活动##############
 #送豆得豆
 15 2,14,22 * * * node /scripts/jd_sddd.js >> /scripts/logs/jd_sddd.log 2>&1
 #电竞经理
-15 10 * * * node /scripts/zoo/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1
+15 10 * * * node /scripts/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1
 # 签到
 7 0,17 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
 # 东东超市兑换奖品
@@ -191,7 +191,7 @@
 # 签到领现金
 10 */4 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
 # 京喜app签到
-29 7 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+29 7 * * * node /scripts/jd_jxsign.js >> /scripts/logs/jd_jxsign.log 2>&1
 # 闪购盲盒
 47 8 * * * node /scripts/jd_sgmh.js >> /scripts/logs/jd_sgmh.log 2>&1
 # 京东秒秒币
