@@ -117,7 +117,7 @@
 0 15-19/1 * * * node /scripts/jd_party_night.js >> /scripts/logs/jd_party_night.log 2>&1
 ##############长期活动##############
 #送豆得豆
-15 2,14,22 * * * node /scripts/jd_sendBeans.js >> /scripts/logs/jd_sendBeans.log 2>&1
+15 2,14,22 * * * node /scripts/jd_sddd.js >> /scripts/logs/jd_sddd.log 2>&1
 #电竞经理
 15 10 * * * node /scripts/zoo/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1
 # 签到
