@@ -5,8 +5,23 @@
 
 ##############短期活动##############
 
+#发财大赢家
+1 6-22/3 * * * node /scripts/jd_fcdyj.js >> /scripts/logs/jd_fcdyj.log 2>&1
+
+#摇钱树助力
+0-59/30 1-23/2 * * *  node /scripts/jd_moneyTree_help.js >> /scripts/logs/jd_moneyTree_help.log 2>&1
+
+#宠汪汪偷好友积分与狗粮
+10 1-21/3 * * *  node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
+
+#柠檬赚金币
+0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1
+
+#京东图形签到
+14 10 * * * node /scripts/jd_sign.js >> /scripts/logs/jd_sign.log 2>&1
+
 #京喜财富岛热气球挂机
-20 6,23 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
+20 12,23 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
 
 #天天优惠大乐透
 15 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
@@ -129,9 +144,9 @@
 # 东东农场
 15 6-18/6 * * * node /scripts/jd_fruit.js >> /scripts/logs/jd_fruit.log 2>&1
 # 宠汪汪
-45 */2,23 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
+0 0-23/4 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
 # 宠汪汪积分兑换京豆
-0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
+#0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 # 宠汪汪喂食
 35 */1 * * * node /scripts/jd_joy_feedPets.js >> /scripts/logs/jd_joy_feedPets.log 2>&1
 # 宠汪汪邀请助力
