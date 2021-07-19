@@ -127,7 +127,7 @@
 #金榜创造营 活动时间：2021-05-21至2021-12-31
 #0 1,22 * * * node /scripts/jd_gold_creator.js >> /scripts/logs/jd_gold_creator.log 2>&1
 #京享值PK
-15 0,6,13,19,21 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
+#15 0,6,13,19,21 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
 #京东沸腾之夜(5.31日有效)
 #0 15-19/1 * * * node /scripts/jd_party_night.js >> /scripts/logs/jd_party_night.log 2>&1
 ##############长期活动##############
