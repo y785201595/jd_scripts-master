@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#京喜财富岛提现
+59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1
+
 #发财大赢家
 1 6-22/3 * * * node /scripts/jd_fcdyj.js >> /scripts/logs/jd_fcdyj.log 2>&1
 
@@ -30,7 +33,7 @@
 26 1,9 * * * node /scripts/jd_dpqd.js >> /scripts/logs/jd_dpqd.log 2>&1
 
 #joy环境
-24 10 * * * npm install png-js |ts >> /scripts/logs/png-js.log 2>&1
+42 10-23/4 * * * npm install png-js |ts >> /scripts/logs/png-js.log 2>&1
 
 #燃动夏季_SH助力
 12 7-14 * * * node /scripts/jd_summer_movement_help.js >> /scripts/logs/jd_summer_movement_help.log 2>&1
@@ -134,7 +137,7 @@
 #送豆得豆
 15 2,14,22 * * * node /scripts/jd_sddd.js >> /scripts/logs/jd_sddd.log 2>&1
 #电竞经理
-15 10 * * * node /scripts/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1
+#15 10 * * * node /scripts/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1
 # 签到
 7 0,17 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
 # 东东超市兑换奖品
