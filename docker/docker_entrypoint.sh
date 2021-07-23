@@ -18,6 +18,7 @@ else
   git -C /scripts pull --rebase
   echo "npm install 安装最新依赖"
   npm install --prefix /scripts
+  npm install png-js
 fi
 ) || exit 0
 
