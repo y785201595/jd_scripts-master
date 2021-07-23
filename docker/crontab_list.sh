@@ -29,9 +29,6 @@
 #京东图形签到
 14 10 * * * node /scripts/jd_sign.js >> /scripts/logs/jd_sign.log 2>&1
 
-#京喜财富岛热气球挂机
-#20 12,23 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
-
 #天天优惠大乐透
 15 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
 
