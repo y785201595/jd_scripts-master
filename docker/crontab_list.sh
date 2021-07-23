@@ -5,6 +5,12 @@
 
 ##############短期活动##############
 
+#首页-领京豆-升级赚京豆
+21 9 * * * node /scripts/jd_ljd.js >> /scripts/logs/jd_ljd.log 2>&1
+
+#赚30元
+3 1,6 * * * node /scripts/jd_earn30.js >> /scripts/logs/jd_earn30.log 2>&1
+
 #京喜财富岛提现
 59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1
 
@@ -54,7 +60,7 @@
 0 9 * * * node /scripts/jd_joy_park_task.js >> /scripts/logs/jd_joy_park_task.log 2>&1
 
 #全面抢京豆
-#08 12-13 * * * node /scripts/jd_qjd.js >> /scripts/logs/jd_qjd.log 2>&1
+08 12-13 * * * node /scripts/jd_qjd.js >> /scripts/logs/jd_qjd.log 2>&1
 
 #柠檬京东零食街
 0 11 * * * node /scripts/jd_lsj.js >> /scripts/logs/jd_lsj.log 2>&1
