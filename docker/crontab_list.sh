@@ -6,6 +6,9 @@
 ##############短期活动##############
 
 #首页-领京豆-升级赚京豆
+5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1
+
+#首页-领京豆-升级赚京豆
 21 9 * * * node /scripts/jd_ljd.js >> /scripts/logs/jd_ljd.log 2>&1
 
 #赚30元
@@ -72,7 +75,7 @@
 30 7 * * * node /scripts/jd_tuijinbi.js >> /scripts/logs/jd_tuijinbi.log 2>&1
 
 #特物Z
-#18 11,21 * * * node /scripts/ jd_superBrand.js >> /scripts/logs/ jd_superBrand.log 2>&1
+#18 11,21 * * * node /scripts/jd_tewuZ.js >> /scripts/logs/jd_tewuZ.log 2>&1
 
 #东东乐园
 30 7 * * * node /scripts/jd_ddly.js >> /scripts/logs/jd_ddly.log 2>&1
