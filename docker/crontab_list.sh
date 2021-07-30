@@ -36,7 +36,7 @@
 0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1
 
 #京东图形签到
-14 10 * * * node /scripts/jd_sign.js >> /scripts/logs/jd_sign.log 2>&1
+14 10,20 * * * node /scripts/jd_sign.js >> /scripts/logs/jd_sign.log 2>&1
 
 #天天优惠大乐透
 15 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
