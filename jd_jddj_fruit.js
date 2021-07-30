@@ -1,23 +1,6 @@
-/*
-京东到家果园任务
-cron 10 0,3,8,11,17 * * * jd_jddj_fruit.js
-已支持IOS双京东账号,Node.js支持N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-============Quantumultx===============
-[task_local]
-#京东到家果园任务
-10 0,3,8,11,17 * * * https://raw.githubusercontent.com/linmudaye/linmudaye/main/jd_jddj_fruit.js, tag=京东到家果园任务
-================Loon==============
-[Script]
-cron "10 0,3,8,11,17 * * *" script-path=https://raw.githubusercontent.com/linmudaye/linmudaye/main/jd_jddj_fruit.js,tag=京东到家果园任务
-===============Surge=================
-京东到家果园任务 = type=cron,cronexp="10 0,3,8,11,17 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/linmudaye/linmudaye/main/jd_jddj_fruit.js
-============小火箭=========
-京东到家果园任务 = type=cron,script-path=https://raw.githubusercontent.com/linmudaye/linmudaye/main/jd_jddj_fruit.js, cronexpr="10 0,3,8,11,17 * * *", timeout=3600, enable=true
-*/
 let isNotify = true;//是否通知,仅限nodejs
 let ckPath = './jdCookie.js';//ck路径,环境变量:JDDJ_CKPATH
-const $ = new API("京东到家果园任务");
+const $ = new API("jd_jddj_fruit");
 let thiscookie = '', deviceid = '', sid = '', nickname = '';
 let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let lng = '114.' + Math.round(Math.random() * (99999 - 10000) + 10000);
@@ -66,7 +49,7 @@ waterNum = 0, waterTimes = 0, shareCode = '', hzstr = '', msgStr = '';
                 url: 'https://bean.m.jd.com/bean/signIndex.action'
             });
             if ($.env.isNode && '' + isNotify + '' == 'true') {
-                await notify.sendNotify('第' + (i + 1) + '个账号cookie过期', '请访问\nhttps://bean.m.jd.com/bean/signIndex.action\n抓取cookie')
+                //await notify.sendNotify('第' + (i + 1) + '个账号cookie过期', '请访问\nhttps://bean.m.jd.com/bean/signIndex.action\n抓取cookie')
             }
             continue
         }
