@@ -224,7 +224,7 @@
 # 签到领现金
 10 */4 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
 # 京喜app签到
-29 7 * * * node /scripts/jd_jxsign.js >> /scripts/logs/jd_jxsign.log 2>&1
+29 7 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
 # 闪购盲盒
 47 8 * * * node /scripts/jd_sgmh.js >> /scripts/logs/jd_sgmh.log 2>&1
 # 京东秒秒币
