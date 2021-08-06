@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#8月粉丝互动
+1 8 * * * node /scripts/jd_wxFans.js >> /scripts/logs/jd_wxFans.log 2>&1
+
 #财福岛气球
 0 0-23/6 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
 
@@ -63,7 +66,7 @@
 25 0,6-23/2 * * * node /scripts/jd_summer_movement.js >> /scripts/logs/jd_summer_movement.log 2>&1
 
 #汪汪乐园开工位
-0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/logs/jd_joy_park_open.log 2>&1
+#0 9 * * * node /scripts/jd_joy_park_open.js >> /scripts/logs/jd_joy_park_open.log 2>&1
 
 #汪汪乐园每日任务
 0 9 * * * node /scripts/jd_joy_park_task.js >> /scripts/logs/jd_joy_park_task.log 2>&1
@@ -184,7 +187,7 @@
 # 取关京东店铺商品
 45 23 * * * node /scripts/jd_unsubscribe.js >> /scripts/logs/jd_unsubscribe.log 2>&1
 # 京豆变动通知
-20 10 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
+20 10,21 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
 # 京东抽奖机
 0 0,12,23 * * * node /scripts/jd_lotteryMachine.js >> /scripts/logs/jd_lotteryMachine.log 2>&1
 # 京东排行榜
