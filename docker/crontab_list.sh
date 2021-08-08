@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+##8.4-8.15 七夕情报局🐶
+36 0,10,21 4-15 8 * node /scripts/jd_qixi.js >> /scripts/logs/jd_qixi.log 2>&1
+
 #8月粉丝互动
 1 8 * * * node /scripts/jd_wxFans.js >> /scripts/logs/jd_wxFans.log 2>&1
 
