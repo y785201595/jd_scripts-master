@@ -140,7 +140,7 @@
 #33 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 
 #手机狂欢城
-#0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
+0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 #618动物联萌
 #33 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1
 
