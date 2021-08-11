@@ -4,6 +4,11 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#柠檬众筹许愿池
+0 8,12 * * * node /scripts/jd_xyc.js >> /scripts/logs/jd_xyc.log 2>&1
+
+#活动路径  手机馆---》IQOO大牌日---〉左下角金机馆
+33 6,9 8-20 8 * node /scripts/jd_goldPhone.js >> /scripts/logs/jd_goldPhone.log 2>&1
 
 ##8.4-8.15 七夕情报局🐶
 36 0,10,21 4-15 8 * node /scripts/jd_qixi.js >> /scripts/logs/jd_qixi.log 2>&1
