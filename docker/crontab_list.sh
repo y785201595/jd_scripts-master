@@ -4,6 +4,13 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+
+#特务Z
+20 7,8 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
+
+#8.12-8.20 汽车生活节
+30 9,21 12-20 8 * node /scripts/jd_qcshj.js >> /scripts/logs/jd_qcshj.log 2>&1
+
 #柠檬众筹许愿池
 0 8,12 * * * node /scripts/jd_xyc.js >> /scripts/logs/jd_xyc.log 2>&1
 
