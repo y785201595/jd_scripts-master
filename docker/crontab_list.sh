@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#8.13-8.25 骁龙品牌日
+18 9,19 13-25 8 * node /scripts/jd_xl.js >> /scripts/logs/jd_xl.log 2>&1
+
 #特务Z
 20 7,8 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
 
