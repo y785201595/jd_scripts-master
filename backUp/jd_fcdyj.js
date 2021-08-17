@@ -107,7 +107,6 @@ const JD_API_HOST = `https://api.m.jd.com`;
     for (let i = 0; i < cookiesArr.length; i++) {
         cookie = cookiesArr[i];
         $.canWx = true
-        $.rewardType = 2
         if (cookie) {
             $.index = i + 1;
             console.log(`\n******查询【京东账号${$.index}】红包情况******\n`);
@@ -129,9 +128,9 @@ const JD_API_HOST = `https://api.m.jd.com`;
         $.done();
     })
 
-async function exchange() {
+function exchange() {
     return new Promise(async (resolve) => {
-        let options = taskUrl("exchange", `{"linkId":"${$.linkid}", "rewardType":${$.rewardType}}`)
+        let options = taskUrl("exchange", `{"linkId":"${$.linkid}", "rewardType":2}`)
         $.get(options, async (err, resp, data) => {
             try {
                 if (err) {
@@ -139,12 +138,10 @@ async function exchange() {
                     console.log(`${$.name} API请求失败，请检查网路重试`);
                 } else {
                     data = JSON.parse(data);
-                    if (data.success && data.data.chatEnvelopeVo.status == 50059) {
-                        console.log(`【京东账号${$.index}】${data.data.chatEnvelopeVo.message} ，尝试兑换红包...`)
-                        $.rewardType = 1
-                        await exchange()
-                    } else {
+                    if (data.success) {
                         console.log(`【京东账号${$.index}】提现成功`)
+                    } else {
+                        console.log(`【京东账号${$.index}】提现失败`)
                     }
                 }
             } catch (e) {
@@ -225,7 +222,7 @@ function getinfo() {
                                 $.needhelp = false
                                 $.canDraw = false
                             }
-                            if (data.data.state === 6 || data.data.state === 4) {
+                            if (data.data.state === 6) {
                                 $.needhelp = false
                                 $.canDraw = true
                             }
