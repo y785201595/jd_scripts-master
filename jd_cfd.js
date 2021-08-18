@@ -72,7 +72,7 @@ $.appId = 10028;
     await $.wait(1000)
     res2 = await getAuthorShareCode('https://raw.fastgit.org/zero205/updateTeam/main/shareCodes/cfd.json')
   }
-  $.strMyShareIds = [...(res && res.shareId || []), ...(res2 && res2.shareId || [])]
+  $.strMyShareIds = [...(res && res.shareId || []), ...(res2 || [])]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -92,7 +92,7 @@ $.appId = 10028;
       }
       $.allTask = []
       $.info = {}
-      UA = `jdpingou;iPhone;4.13.0;14.4.2;${randomString()};network/wifi;model/iPhone10,2;appBuild/100609;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/${Math.random * 98 + 1};pap/JA2019_3111789;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
+      UA = `jdpingou;iPhone;4.13.0;14.4.2;${randomString(40)};network/wifi;model/iPhone10,2;appBuild/100609;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/${Math.random * 98 + 1};pap/JA2019_3111789;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
       token = await getJxToken()
       await shareCodesFormat()
       await cfd();
@@ -134,12 +134,12 @@ async function cfd() {
   try {
     nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000)
     let beginInfo = await getUserInfo();
-    if (beginInfo.Fund.ddwFundTargTm === 0) {
+    if (beginInfo.LeadInfo.dwLeadType === 2) {
       console.log(`还未开通活动，尝试初始化`)
       await noviceTask()
       await $.wait(2000)
       beginInfo = await getUserInfo(false);
-      if (beginInfo.Fund.ddwFundTargTm !== 0) {
+      if (beginInfo.LeadInfo.dwLeadType !== 2) {
         console.log(`初始化成功\n`)
       } else {
         console.log(`初始化失败\n`)
@@ -150,6 +150,10 @@ async function cfd() {
     //每日签到
     await $.wait(2000)
     await getTakeAggrPage('sign')
+
+    //小程序每日签到
+    await $.wait(2000)
+    await getTakeAggrPage('wxsign')
 
     //助力奖励
     await $.wait(2000)
@@ -601,6 +605,36 @@ async function getTakeAggrPage(type) {
           }
         })
         break
+      case 'wxsign':
+        $.get(taskUrl(`story/GetTakeAggrPage`, '', 6), async (err, resp, data) => {
+          try {
+            if (err) {
+              console.log(`${JSON.stringify(err)}`)
+              console.log(`${$.name} GetTakeAggrPage API请求失败，请检查网路重试`)
+            } else {
+              data = JSON.parse(data);
+              console.log(`小程序每日签到`)
+              for (let key of Object.keys(data.Data.Sign.SignList)) {
+                let vo = data.Data.Sign.SignList[key]
+                if (vo.dwDayId === data.Data.Sign.dwTodayId) {
+                  if (vo.dwStatus !== 1) {
+                    const body = `ddwCoin=${vo.ddwCoin}&ddwMoney=${vo.ddwMoney}&dwPrizeType=${vo.dwPrizeType}&strPrizePool=${vo.strPrizePool}&dwPrizeLv=${vo.dwBingoLevel}`
+                    await rewardSign(body, 6)
+                    await $.wait(2000)
+                  } else {
+                    console.log(`今日已签到\n`)
+                    break
+                  }
+                }
+              }
+            }
+          } catch (e) {
+            $.logErr(e, resp);
+          } finally {
+            resolve();
+          }
+        })
+        break
       case 'helpdraw':
         $.get(taskUrl(`story/GetTakeAggrPage`), async (err, resp, data) => {
           try {
@@ -638,9 +672,9 @@ async function getTakeAggrPage(type) {
     }
   })
 }
-function rewardSign(body) {
+function rewardSign(body, dwEnv = 7) {
   return new Promise((resolve) => {
-    $.get(taskUrl(`story/RewardSign`, body), (err, resp, data) => {
+    $.get(taskUrl(`story/RewardSign`, body, dwEnv), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -1189,7 +1223,7 @@ function getUserInfo(showInvite = true) {
             sErrMsg,
             strMyShareId,
             dwLandLvl,
-            Fund = {},
+            LeadInfo = {},
             StoryInfo = {},
             Business = {}
           } = data;
@@ -1209,7 +1243,7 @@ function getUserInfo(showInvite = true) {
             ddwCoinBalance,
             strMyShareId,
             dwLandLvl,
-            Fund,
+            LeadInfo,
             StoryInfo
           };
           resolve({
@@ -1217,7 +1251,7 @@ function getUserInfo(showInvite = true) {
             ddwRichBalance,
             ddwCoinBalance,
             strMyShareId,
-            Fund,
+            LeadInfo,
             StoryInfo
           });
         }
@@ -1489,8 +1523,8 @@ function biz(contents){
   })
 }
 
-function taskUrl(function_path, body = '') {
-  let url = `${JD_API_HOST}jxbfd/${function_path}?strZone=jxbfd&bizCode=jxbfd&source=jxbfd&dwEnv=7&_cfd_t=${Date.now()}&ptag=138631.26.55&${body}&_stk=_cfd_t%2CbizCode%2CddwTaskId%2CdwEnv%2Cptag%2Csource%2CstrShareId%2CstrZone&_ste=1`;
+function taskUrl(function_path, body = '', dwEnv = 7) {
+  let url = `${JD_API_HOST}jxbfd/${function_path}?strZone=jxbfd&bizCode=jxbfd&source=jxbfd&dwEnv=${dwEnv}&_cfd_t=${Date.now()}&ptag=138631.26.55&${body}&_stk=_cfd_t%2CbizCode%2CddwTaskId%2CdwEnv%2Cptag%2Csource%2CstrShareId%2CstrZone&_ste=1`;
   url += `&h5st=${decrypt(Date.now(), '', '', url)}&_=${Date.now() + 2}&sceneval=2&g_login_type=1&g_ty=ls`;
   return {
     url,
@@ -1527,12 +1561,12 @@ function taskListUrl(function_path, body = '', bizCode = 'jxbfd') {
   };
 }
 
-function randomString() {
-  return Math.random().toString(16).slice(2, 10) +
-    Math.random().toString(16).slice(2, 10) +
-    Math.random().toString(16).slice(2, 10) +
-    Math.random().toString(16).slice(2, 10) +
-    Math.random().toString(16).slice(2, 10)
+function randomString(e) {
+  e = e || 32;
+  let t = "0123456789abcdef", a = t.length, n = "";
+  for (let i = 0; i < e; i++)
+    n += t.charAt(Math.floor(Math.random() * a));
+  return n
 }
 
 function showMsg() {
