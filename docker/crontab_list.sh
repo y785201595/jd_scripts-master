@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#开学充电站
+30 1 * * * node /scripts/jd_kxcdz.js >> /scripts/logsjd_kxcdz.log 2>&1
+
 #众筹许愿池
 40 0,2 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
 
