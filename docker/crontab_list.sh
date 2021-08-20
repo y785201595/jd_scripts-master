@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#众筹许愿池
+40 0,2 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
+
 #8.13-8.25 骁龙品牌日
 18 9,19 13-25 8 * node /scripts/jd_xl.js >> /scripts/logs/jd_xl.log 2>&1
 
