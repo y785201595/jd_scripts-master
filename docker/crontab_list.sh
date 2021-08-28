@@ -6,6 +6,9 @@
 ##############短期活动##############
 
 #领券中心签到
+33 7,19 * * * node /scripts/jd_dwapp.js >> /scripts/jd_dwapp.log 2>&1
+
+#领券中心签到
 15 0 * * * node /scripts/jd_ccSign.js >> /scripts/jd_ccSign.log 2>&1
 
 #开学充电站
