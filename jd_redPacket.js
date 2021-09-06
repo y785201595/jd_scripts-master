@@ -52,7 +52,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     await $.wait(1000)
     res2 = await getAuthorShareCode('https://raw.fastgit.org/zero205/updateTeam/main/shareCodes/jd_red.json')
   }
-  $.authorMyShareIds = [...(res || []),...(res2 || [])];
+  $.authorMyShareIds = [...(res && [res[Math.floor((Math.random() * res.length))]] || []),...(res2 || [])];
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
