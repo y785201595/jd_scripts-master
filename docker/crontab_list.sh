@@ -4,6 +4,8 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#集萌宝得团圆礼包
+10 0,8,23 * * * node /scripts/jd_jika.js >> /scripts/jd_jika.log 2>&1
 
 #领券中心签到
 33 7,19 * * * node /scripts/jd_dwapp.js >> /scripts/jd_dwapp.log 2>&1
