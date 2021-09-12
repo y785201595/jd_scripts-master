@@ -4,6 +4,13 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+
+#活动路径：边玩边赚->京小鸽吾悦寄
+15 3,6 * * * node /scripts/jd_jxg.js >> /scripts/jd_jxg.log 2>&1
+
+#内容鉴赏官
+15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/jd_connoisseur.log 2>&1
+
 #集萌宝得团圆礼包
 10 0,8,23 * * * node /scripts/jd_jika.js >> /scripts/jd_jika.log 2>&1
 
