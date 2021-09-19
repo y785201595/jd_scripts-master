@@ -4,6 +4,14 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#东东玩家
+20 0 * * *node /scripts/jd_ddwj.js >> /scripts/jd_ddwj.log 2>&1
+
+#东东世界
+30 0 * * * node /scripts/jd_ddworld.js >> /scripts/jd_ddworld.log 2>&1
+
+#企有此礼
+30 0 * * * node /scripts/jd_qycl.js >> /scripts/jd_qycl.log 2>&1
 
 #活动路径：边玩边赚->京小鸽吾悦寄
 15 3,6 * * * node /scripts/jd_jxg.js >> /scripts/jd_jxg.log 2>&1
