@@ -4,8 +4,15 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+
+#热血心跳,狂解压
+cron  5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/jd_decompression.log 2>&1
+
+#东东游戏
+17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/jd_ddgame.log 2>&1
+
 #东东玩家
-20 0 * * *node /scripts/jd_ddwj.js >> /scripts/jd_ddwj.log 2>&1
+20 0 * * * node /scripts/jd_ddwj.js >> /scripts/jd_ddwj.log 2>&1
 
 #东东世界
 30 0 * * * node /scripts/jd_ddworld.js >> /scripts/jd_ddworld.log 2>&1
