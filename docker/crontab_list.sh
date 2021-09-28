@@ -5,38 +5,41 @@
 
 ##############短期活动##############
 
+#集魔方
+cron 6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
+
 #热血心跳,狂解压
-cron  5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/jd_decompression.log 2>&1
+cron  5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
 
 #东东游戏
-17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/jd_ddgame.log 2>&1
+17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/logs/jd_ddgame.log 2>&1
 
 #东东玩家
-20 0 * * * node /scripts/jd_ddwj.js >> /scripts/jd_ddwj.log 2>&1
+20 0 * * * node /scripts/jd_ddwj.js >> /scripts/logs/jd_ddwj.log 2>&1
 
 #东东世界
-30 0 * * * node /scripts/jd_ddworld.js >> /scripts/jd_ddworld.log 2>&1
+30 0 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 
 #企有此礼
-30 0 * * * node /scripts/jd_qycl.js >> /scripts/jd_qycl.log 2>&1
+30 0 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
 
 #活动路径：边玩边赚->京小鸽吾悦寄
-15 3,6 * * * node /scripts/jd_jxg.js >> /scripts/jd_jxg.log 2>&1
+15 3,6 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
 
 #内容鉴赏官
-15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/jd_connoisseur.log 2>&1
+15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 
 #集萌宝得团圆礼包
-10 0,8,23 * * * node /scripts/jd_jika.js >> /scripts/jd_jika.log 2>&1
+10 0,8,23 * * * node /scripts/jd_jika.js >> /scripts/logs/jd_jika.log 2>&1
 
 #领券中心签到
-33 7,19 * * * node /scripts/jd_dwapp.js >> /scripts/jd_dwapp.log 2>&1
+33 7,19 * * * node /scripts/jd_dwapp.js >> /scripts/logs/jd_dwapp.log 2>&1
 
 #领券中心签到
-15 0 * * * node /scripts/jd_ccSign.js >> /scripts/jd_ccSign.log 2>&1
+15 0 * * * node /scripts/jd_ccSign.js >> /scripts/logs/jd_ccSign.log 2>&1
 
 #开学充电站
-30 1 * * * node /scripts/jd_kxcdz.js >> /scripts/logsjd_kxcdz.log 2>&1
+30 1 * * * node /scripts/jd_kxcdz.js >> /scripts/logs/logsjd_kxcdz.log 2>&1
 
 #众筹许愿池
 40 0,2 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
