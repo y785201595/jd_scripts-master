@@ -5,6 +5,9 @@
 
 ##############短期活动##############
 
+#天天P图
+cron 18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
+
 #集魔方
 cron 6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
 
