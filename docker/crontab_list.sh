@@ -18,7 +18,7 @@ cron  5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/log
 17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/logs/jd_ddgame.log 2>&1
 
 #东东玩家
-20 0 * * * node /scripts/jd_ddwj.js >> /scripts/logs/jd_ddwj.log 2>&1
+20 0 * * * node /scripts/jd_honour.js >> /scripts/logs/jd_honour.log 2>&1
 
 #东东世界
 30 0 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1

@@ -2,17 +2,31 @@
 exports.main_handler = async (event, context, callback) => {
     let params = {}
     let scripts = []
-    const single_flag = event["Message"] != 'config'
-    if (single_flag) {
-        if (!event["Message"]) {
-            console.error('ERROR, NO ARGUMENTS FOUND!!!')
-            return 
+    if (event["TriggerName"] == 'remote') {
+        console.log('remote触发:', event["Message"])
+        const got = require('got')
+        let response
+        try {
+            response = await got(`https://raw.githubusercontent.com/zero205/JD_tencent_scf/main/${event["Message"]}.js`, {
+                timeout: 3000,
+                retry: 0
+            })
+        } catch (error) {
+            console.error(`got error:`, error)
+            return
         }
-        console.log('参数触发方式(不读取配置文件),触发参数:', event["Message"])
-        scripts = event["Message"].split("&")
-    } else {
-        const now_hour = (new Date().getUTCHours() + 8) % 24
-        console.log('hourly config触发:', now_hour)
+        eval(response.body)
+        return
+    } else if (event["TriggerName"] == 'config') {
+        let now_hour = (new Date().getUTCHours() + 8) % 24
+        console.log('hourly config触发,当前:', now_hour)
+        if (event["Message"]){
+            const hour = Number(event["Message"])
+            if (!isNaN(hour) && hour >= 0 && hour <= 23) {
+                now_hour = hour
+                console.log('hourly config触发,自定义触发小时:', now_hour)
+            }
+        }
         const { readFileSync, accessSync, constants } = require('fs')
         const config_file = 'config.json'
         try {
@@ -64,6 +78,13 @@ exports.main_handler = async (event, context, callback) => {
                 }
             }
         }
+    } else {
+        if (!event["Message"]) {
+            console.error('未接收到任何参数,请阅读@hshx123大佬教程的测试步骤,查看如何使用.')
+            return
+        }
+        console.log('参数触发方式(不读取配置文件),触发参数:', event["Message"])
+        scripts = event["Message"].split("&")
     }
     if (process.env.NOT_RUN) {
         const not_run = process.env.NOT_RUN.split("&")
@@ -75,7 +96,7 @@ exports.main_handler = async (event, context, callback) => {
             return !flag
         })
     }
-    if (!scripts.length){
+    if (!scripts.length) {
         console.log('No Script to Execute, Exit!')
         return
     }
@@ -88,20 +109,18 @@ exports.main_handler = async (event, context, callback) => {
         for (const script of scripts) {
             const name = './' + script + '.js'
             const param_run = {}
-            if (!single_flag) {
-                const param = params[script]
-                for (const param_name of param_names) {
-                    if (param) {
-                        if (param[param_name]) {
-                            console.debug(`${script} has specific ${param_name}:${param[param_name]}`)
-                            param_run[param_name] = min * param[param_name]
-                        }
-                    } else if (params['global'] && params['global'][param_name]) {
-                        console.debug(`${script} use global ${param_name}`)
-                        param_run[param_name] = min * params['global'][param_name]
-                    } else {
-                        console.warn(`No global ${param_name}!`)
+            const param = params[script]
+            for (const param_name of param_names) {
+                if (param) {
+                    if (param[param_name]) {
+                        console.debug(`${script} has specific ${param_name}:${param[param_name]}`)
+                        param_run[param_name] = min * param[param_name]
                     }
+                } else if (params['global'] && params['global'][param_name]) {
+                    console.debug(`${script} use global ${param_name}`)
+                    param_run[param_name] = min * params['global'][param_name]
+                } else {
+                    console.warn(`No global ${param_name}!`)
                 }
             }
             console.log(`run script:${script}`)
