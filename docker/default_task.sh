@@ -250,3 +250,7 @@ echo "发送通知"
 export NOTIFY_CONTENT=""
 cd /scripts/docker
 node notify_docker_user.js
+
+echo "安装png-js"
+cd /scripts/
+npm install png-js
