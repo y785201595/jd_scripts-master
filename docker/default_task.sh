@@ -254,3 +254,7 @@ node notify_docker_user.js
 echo "安装png-js"
 cd /scripts/
 npm install png-js
+
+echo "安装jsdom"
+cd /scripts/
+npm install jsdom
