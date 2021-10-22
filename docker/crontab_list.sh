@@ -4,6 +4,20 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############短期活动##############
+#APP-美妆馆-右侧浮窗
+cron 23 9,10 * * * node /scripts/d_selectionOfficer.js >> /scripts/logs/d_selectionOfficer.log 2>&1
+
+#惊喜大作战
+cron 50 1 * * * node /scripts/jd_jxdzz.js >> /scripts/logs/jd_jxdzz.log 2>&1
+
+#预售福利机
+cron 5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
+
+#限时抢京豆
+cron 11 0,9 * * * node /scripts/jd_xsqjd.js >> /scripts/logs/jd_xsqjd.log 2>&1
+
+#东东超市抢京豆
+cron 11 0,9 * * * node /scripts/jd_fission.js >> /scripts/logs/jd_fission.log 2>&1
 
 #天天P图
 cron 18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
