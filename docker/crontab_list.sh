@@ -171,16 +171,16 @@
 #18 11,21 * * * node /scripts/jd_tewuZ.js >> /scripts/logs/jd_tewuZ.log 2>&1
 
 #东东乐园
-30 7 * * * node /scripts/jd_ddly.js >> /scripts/logs/jd_ddly.log 2>&1
+#30 7 * * * node /scripts/jd_ddly.js >> /scripts/logs/jd_ddly.log 2>&1
 
 #京东到家果园水车收水滴任务
-*/20 * * * * node /scripts/jd_jddj_fruit_collectWater.js >> /scripts/logs/jd_jddj_fruit_collectWater.log 2>&1
+#*/20 * * * * node /scripts/jd_jddj_fruit_collectWater.js >> /scripts/logs/jd_jddj_fruit_collectWater.log 2>&1
 
 #京东到家鲜豆庄园收水滴
-*/20 * * * * node /scripts/jd_jddj_getPoints.js >> /scripts/logs/jd_jddj_getPoints.log 2>&1
+#3*/20 * * * * node /scripts/jd_jddj_getPoints.js >> /scripts/logs/jd_jddj_getPoints.log 2>&1
 
 #京京东到家鲜豆庄园
-10 0 * * * node /scripts/jd_jddj_plantBeans.js >> /scripts/logs/jd_jddj_plantBeans.log 2>&1
+#10 0 * * * node /scripts/jd_jddj_plantBeans.js >> /scripts/logs/jd_jddj_plantBeans.log 2>&1
 
 #京东魔盒
 0 0,1-23/3 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
@@ -215,7 +215,7 @@
 #每日抽奖(活动时间：2021-05-01至2021-05-31)
 #13 1,22,23 * * * node /scripts/jd_daily_lottery.js >> /scripts/logs/jd_daily_lottery.log 2>&1
 #城城领现金
-#33 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
+33 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 
 #手机狂欢城
 0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
