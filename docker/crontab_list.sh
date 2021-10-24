@@ -12,7 +12,7 @@
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
 #APP-美妆馆-右侧浮窗
-23 9,10 * * * node /scripts/d_selectionOfficer.js >> /scripts/logs/d_selectionOfficer.log 2>&1
+23 9,10 * * * node /scripts/jd_selectionOfficer.js >> /scripts/logs/d_selectionOfficer.log 2>&1
 
 #惊喜大作战
 50 1 * * * node /scripts/jd_jxdzz.js >> /scripts/logs/jd_jxdzz.log 2>&1
