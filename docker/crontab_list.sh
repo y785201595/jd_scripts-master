@@ -6,34 +6,34 @@
 ##############短期活动##############
 
 #电竞预言家
-cron 10 0,8 * * * node /scripts/jd_djyyj.js >> /scripts/logs/jd_djyyj.log 2>&1
+10 0,8 * * * node /scripts/jd_djyyj.js >> /scripts/logs/jd_djyyj.log 2>&1
 
 #手机助力
-cron 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
+10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
 #APP-美妆馆-右侧浮窗
-cron 23 9,10 * * * node /scripts/d_selectionOfficer.js >> /scripts/logs/d_selectionOfficer.log 2>&1
+23 9,10 * * * node /scripts/d_selectionOfficer.js >> /scripts/logs/d_selectionOfficer.log 2>&1
 
 #惊喜大作战
-cron 50 1 * * * node /scripts/jd_jxdzz.js >> /scripts/logs/jd_jxdzz.log 2>&1
+50 1 * * * node /scripts/jd_jxdzz.js >> /scripts/logs/jd_jxdzz.log 2>&1
 
 #预售福利机
-cron 5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
+5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
 
 #限时抢京豆
-cron 11 0,9 * * * node /scripts/jd_xsqjd.js >> /scripts/logs/jd_xsqjd.log 2>&1
+11 0,9 * * * node /scripts/jd_xsqjd.js >> /scripts/logs/jd_xsqjd.log 2>&1
 
 #东东超市抢京豆
-cron 11 0,9 * * * node /scripts/jd_fission.js >> /scripts/logs/jd_fission.log 2>&1
+11 0,9 * * * node /scripts/jd_fission.js >> /scripts/logs/jd_fission.log 2>&1
 
 #天天P图
-cron 18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
+18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
 
 #集魔方
-cron 6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
+6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
 
 #热血心跳,狂解压
-cron  5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
+5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
 
 #东东游戏
 17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/logs/jd_ddgame.log 2>&1
