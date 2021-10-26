@@ -5,8 +5,14 @@
 
 ##############短期活动##############
 
+#柠檬是兄弟就砍我2
+0 5,17 * * * node /scripts/jd_kyd.js >> /scripts/logs/jd_kyd.log 2>&1
+
+#奇怪的潮玩儿制躁团
+23 11,12 * * * node /scripts/jd_zzt.js >> /scripts/logs/jd_zzt.log 2>&1
+
 #电竞预言家
-10 0,8 * * * node /scripts/jd_djyyj.js >> /scripts/logs/jd_djyyj.log 2>&1
+23 10,11 * * * node /scripts/jd_lol.js >> /scripts/logs/jd_lol.log 2>&1
 
 #手机助力
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
@@ -189,7 +195,7 @@
 1 0,8 * * * node /scripts/jd_sqffl.js >> /scripts/logs/jd_sqffl.log 2>&1
 
 # 京东到家果园任务
-10 0,3,8,11,17 * * * node /scripts/jd_jddj_fruit.js >> /scripts/logs/jd_jddj_fruit.log 2>&1
+#10 0,3,8,11,17 * * * node /scripts/jd_jddj_fruit.js >> /scripts/logs/jd_jddj_fruit.log 2>&1
 
 #整点京豆雨
 30 20 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
