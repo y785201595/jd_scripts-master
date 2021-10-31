@@ -2,8 +2,17 @@
 50 23 */3 * * find /scripts/logs -name '*.log' | grep -v 'sharecodeCollection' | xargs rm -rf
 #收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
-
 ##############短期活动##############
+
+#沸腾之夜
+24 3,13 * * * node /scripts/jd_hotNeight.js >> /scripts/logs/jd_hotNeight.log 2>&1
+
+#京东APP-搜索-超级盒子
+24 3,13 * * * node /scripts/jd_cjhz.js >> /scripts/logs/jd_cjhz.log 2>&1
+
+
+#发财挖宝
+20 1,9,16 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1
 
 #柠檬是兄弟就砍我2
 0 5,17 * * * node /scripts/jd_kyd.js >> /scripts/logs/jd_kyd.log 2>&1
