@@ -50,14 +50,14 @@
 #热血心跳,狂解压
 5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
 
-#东东游戏
-17 12/4 * * * node /scripts/jd_ddgame.js >> /scripts/logs/jd_ddgame.log 2>&1
+#竞速榜
+10 1,7,20 * * * node /scripts/jd_jingsubang.js >> /scripts/logs/jd_jingsubang.log 2>&1
 
-#东东玩家
-20 0 * * * node /scripts/jd_honour.js >> /scripts/logs/jd_honour.log 2>&1
+#京喜-首页-牛牛福利
+1 0,9,19,23 * * * node /scripts/jd_nnfls.js >> /scripts/logs/jd_nnfls.log 2>&1
 
-#东东世界
-30 0 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
+#手机竞猜
+30 0 * * * node /scripts/jd_sjjc.js >> /scripts/logs/jd_sjjc.log 2>&1
 
 #企有此礼
 30 0 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
