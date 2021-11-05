@@ -32,8 +32,8 @@
 #惊喜大作战
 50 1 * * * node /scripts/jd_jxdzz.js >> /scripts/logs/jd_jxdzz.log 2>&1
 
-#预售福利机
-5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
+#活动入口：微信小程序-京东电器-首页抽盲盒
+0 0,8 * * * node /scripts/jd_dqmh.js >> /scripts/logs/jd_dqmh.log 2>&1
 
 #限时抢京豆
 11 0,9 * * * node /scripts/jd_xsqjd.js >> /scripts/logs/jd_xsqjd.log 2>&1
@@ -238,7 +238,7 @@
 #33 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1
 
 #家电星推官 活动时间：2021年5月27日 00:00:00-2021年6月18日 23:59:59
-#0 0 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1
+0 0 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1
 #家电星推官 活动时间：2021年5月27日 00:00:00-2021年6月18日 23:59:59
 #0 0 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1
 #金榜创造营 活动时间：2021-05-21至2021-12-31
