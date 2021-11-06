@@ -11,8 +11,8 @@
 24 3,13 * * * node /scripts/jd_cjhz.js >> /scripts/logs/jd_cjhz.log 2>&1
 
 
-#发财挖宝
-20 1,9,16 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1
+#热血心跳,狂解压
+10 2,9,17 * * * node /scripts/jd_vivo.js >> /scripts/logs/jd_vivo.log 2>&1
 
 #柠檬是兄弟就砍我2
 0 5,17 * * * node /scripts/jd_kyd.js >> /scripts/logs/jd_kyd.log 2>&1
