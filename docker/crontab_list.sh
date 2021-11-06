@@ -59,8 +59,8 @@
 #手机竞猜
 30 0 * * * node /scripts/jd_sjjc.js >> /scripts/logs/jd_sjjc.log 2>&1
 
-#企有此礼
-30 0 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
+#双11环游记大富翁
+0 2 1-11 11 * node /scripts/jd_travel_shop.js >> /scripts/logs/jd_travel_shop.log 2>&1
 
 #活动路径：边玩边赚->京小鸽吾悦寄
 15 3,6 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
