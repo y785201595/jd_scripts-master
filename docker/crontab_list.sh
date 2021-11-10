@@ -20,9 +20,6 @@
 #奇怪的潮玩儿制躁团
 23 11,12 * * * node /scripts/jd_zzt.js >> /scripts/logs/jd_zzt.log 2>&1
 
-#电竞预言家
-23 10,11 * * * node /scripts/jd_lol.js >> /scripts/logs/jd_lol.log 2>&1
-
 #手机助力
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
