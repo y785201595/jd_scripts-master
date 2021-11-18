@@ -3,7 +3,7 @@
 #收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 #设置助力码
-35 * * * * cat /scripts/logs/111.log >> /scripts/logs/sharecodeCollection.log
+35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
 #沸腾之夜
