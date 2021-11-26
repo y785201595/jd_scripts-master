@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#京东签到翻牌
+10 8 * * * node /scripts/jd_sign_graphics1.js >> /scripts/logs/jd_sign_graphics.log 2>&1
+
 #京东金榜
 13 6 * * * node /scripts/jd_gold_sign.js >> /scripts/logs/jd_gold_sign.log 2>&1
 
