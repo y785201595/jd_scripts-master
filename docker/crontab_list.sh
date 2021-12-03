@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#京东东东世界
+15 3,9 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
+
 #京东签到翻牌
 10 8 * * * node /scripts/jd_sign_graphics1.js >> /scripts/logs/jd_sign_graphics.log 2>&1
 
@@ -140,7 +143,7 @@
 0-59/30 1-23/2 * * *  node /scripts/jd_moneyTree_help.js >> /scripts/logs/jd_moneyTree_help.log 2>&1
 
 #宠汪汪偷好友积分与狗粮
-10 1-21/3 * * *  node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
+#10 1-21/3 * * *  node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
 
 #柠檬赚金币
 0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1
@@ -267,13 +270,13 @@
 # 东东农场
 15 6-18/6 * * * node /scripts/jd_fruit.js >> /scripts/logs/jd_fruit.log 2>&1
 # 宠汪汪
-0 0-23/4 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
+#0 0-23/4 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
 # 宠汪汪积分兑换京豆
 #0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 # 宠汪汪喂食
-35 */1 * * * node /scripts/jd_joy_feedPets.js >> /scripts/logs/jd_joy_feedPets.log 2>&1
+#35 */1 * * * node /scripts/jd_joy_feedPets.js >> /scripts/logs/jd_joy_feedPets.log 2>&1
 # 宠汪汪邀请助力
-10 13-20/1 * * * node /scripts/jd_joy_run.js >> /scripts/logs/jd_joy_run.log 2>&1
+#10 13-20/1 * * * node /scripts/jd_joy_run.js >> /scripts/logs/jd_joy_run.log 2>&1
 # 摇钱树
 23 */2 * * * node /scripts/jd_moneyTree.js >> /scripts/logs/jd_moneyTree.log 2>&1
 # 东东萌宠
