@@ -188,8 +188,8 @@
 #欧洲狂欢杯
 #57 59 9  * * * node /scripts/jd_europeancup.js >> /scripts/logs/jd_europeancup.log 2>&1
 
-#星系牧场
-1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
+# 一分钱抽奖
+10 0 * * * node /scripts/jd_lottery_drew.js >> /scripts/logs/jd_lottery_drew.log 2>&1
 
 #推一推
 30 7 * * * node /scripts/jd_tuijinbi.js >> /scripts/logs/jd_tuijinbi.log 2>&1
