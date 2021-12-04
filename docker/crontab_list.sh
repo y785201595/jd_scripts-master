@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#汪汪乐园提现
+15 10 * * * node /scripts/jd_joy_tx.js >> /scripts/logs/jd_joy_tx.log 2>&1
+
 #京东东东世界兑换
 0 0 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 
