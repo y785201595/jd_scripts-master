@@ -6,6 +6,12 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#金榜年终奖
+10 0,2 * * * node /scripts/jd_split.js >> /scripts/logs/jd_split.log 2>&1
+
+#高通晓龙
+10 9,17 * * * node /scripts/jd_jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
+
 #京东生鲜每日抽奖
 10 7 * * * node /scripts/jd_sxLottery.js >> /scripts/logs/jd_sxLottery.log 2>&1
 
