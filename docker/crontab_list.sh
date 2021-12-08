@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#京东我的理想家
+10 7 * * * node /scripts/jd_lxLottery.js >> /scripts/logs/jd_lxLottery.log 2>&1
+
 #金榜年终奖
 10 0,2 * * * node /scripts/jd_split.js >> /scripts/logs/jd_split.log 2>&1
 
