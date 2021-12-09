@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#京东小魔方--收集兑换
+#31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
+
 #京东我的理想家
 10 7 * * * node /scripts/jd_lxLottery.js >> /scripts/logs/jd_lxLottery.log 2>&1
 
@@ -16,7 +19,7 @@
 10 9,17 * * * node /scripts/jd_jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
 
 #京东生鲜每日抽奖
-10 7 * * * node /scripts/jd_sxLottery.js >> /scripts/logs/jd_sxLottery.log 2>&1
+#10 7 * * * node /scripts/jd_sxLottery.js >> /scripts/logs/jd_sxLottery.log 2>&1
 
 #京东东东世界兑换
 0 0 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
@@ -71,7 +74,7 @@
 18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
 
 #集魔方
-6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
+#6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
 
 #热血心跳,狂解压
 5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
