@@ -6,8 +6,17 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#整点京豆雨
+0 * * * * node /scripts/jd_redrain.js >> /scripts/logs/jd_redrain.log 2>&1
+
+#半点京豆雨
+30 20-23/1 * * * node /scripts/jd_redrain_half.js >> /scripts/logs/jd_redrain_half.log 2>&1
+
+#双十二红包
+cron 0 0,20 * * * node /scripts/jd_1212.js >> /scripts/logs/jd_1212.log 2>&1
+
 #京东小魔方--收集兑换
-#31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
+31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
 
 #京东我的理想家
 10 7 * * * node /scripts/jd_lxLottery.js >> /scripts/logs/jd_lxLottery.log 2>&1
@@ -74,7 +83,7 @@
 18 0,18 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
 
 #集魔方
-#6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
+6 8,20 * * * node /scripts/jd_jmf.js >> /scripts/logs/jd_jmf.log 2>&1
 
 #热血心跳,狂解压
 5 6,18 1-16,21-30 9,10 * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
