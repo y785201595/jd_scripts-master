@@ -6,6 +6,9 @@
 35 * * * * \cp /scripts/logs/111.log /scripts/logs/sharecodeCollection.log
 ##############短期活动##############
 
+#京东工业品
+10 7 * 12 * node /scripts/jd_gyp.js >> /scripts/logs/jd_gyp.log 2>&1
+
 #整点京豆雨
 0 * * * * node /scripts/jd_redrain.js >> /scripts/logs/jd_redrain.log 2>&1
 
@@ -28,7 +31,7 @@ cron 0 0,20 * * * node /scripts/jd_1212.js >> /scripts/logs/jd_1212.log 2>&1
 10 9,17 * * * node /scripts/jd_jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
 
 #京东生鲜每日抽奖
-#10 7 * * * node /scripts/jd_sxLottery.js >> /scripts/logs/jd_sxLottery.log 2>&1
+10 7 * * * node /scripts/jd_sxLottery.js >> /scripts/logs/jd_sxLottery.log 2>&1
 
 #京东东东世界兑换
 0 0 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
